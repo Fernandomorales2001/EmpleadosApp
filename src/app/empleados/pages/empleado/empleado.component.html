@@ -1,0 +1,38 @@
+<mat-grid-list cols="1" *ngIf="!empleado, else divEmpleado">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divEmpleado>
+<div fxLayout="row"
+fxLayout.xs="column"
+fxLayoutGap="30px">
+
+    <div fxFlex="50">
+        <h1>{{empleado.nombre}} <small>{{empleado.apellido}}</small></h1>
+        <mat-divider></mat-divider>
+        <br>
+        <img [src]="empleado | imagen">
+    </div>
+    <div>
+        <h1>{{empleado.empresa}}</h1>
+        <mat-divider></mat-divider>
+        
+        <mat-list>
+            <mat-list-item>{{empleado.codigoempleado}}</mat-list-item>
+            <mat-list-item>{{empleado.direccion}}</mat-list-item>
+            <mat-list-item>{{empleado.salario}}</mat-list-item>
+        </mat-list>
+
+        <br>
+
+        <button mat-button color="warn"
+        (click)="regresar()">
+            Regresar
+        </button>
+    </div>
+</div>
+</ng-template>
+
+

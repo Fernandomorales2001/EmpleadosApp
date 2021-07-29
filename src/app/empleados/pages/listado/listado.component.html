@@ -1,0 +1,17 @@
+<h1>Listado de Empleados</h1>
+
+<mat-divider></mat-divider>
+<br>
+
+<div fxLayout="row wrap"
+fxLayout.xs="column"
+fxLayoutAlign="center"
+fxLayoutGap="20px">
+    <div fxFlex="20"
+    fexFlex.lg="15"
+    fxFlex.sm="30" *ngFor="let empleado of empleados">
+       
+    <app-heroe-tarjeta [empleado]="empleado"></app-heroe-tarjeta>
+    </div>
+</div>
+
