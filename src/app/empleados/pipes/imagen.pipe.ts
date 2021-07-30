@@ -6,8 +6,13 @@ import { Empleado } from '../interfaces/empleados.interface';
 export class ImagenPipe implements PipeTransform {
 
   transform(empleado: Empleado ): string {
-    console.log(empleado);
+    if(!empleado.idempleado && !empleado.alt_img){
+      return 'assets/no-image.png';
+    }
+    else if(empleado.alt_img){
+      return empleado.alt_img;
+    } else {
     return `assets/empleados/${empleado.idempleado}.jpg`;
   }
-
+}
 }

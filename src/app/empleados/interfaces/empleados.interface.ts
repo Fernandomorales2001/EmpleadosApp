@@ -1,10 +1,11 @@
 export interface Empleado {
-    idempleado?:     number;
+    idempleado?:     string;
     nombre:         string;
     apellido:       string;
     direccion:      string;
-    salario:        number;
-    codigoempleado: number;
+    salario:        string;
+    codigoempleado: string;
     empresa:        string;
-    alt_img?:       string;
+    antiguedad:     string;
+    alt_img?:        string;
 }

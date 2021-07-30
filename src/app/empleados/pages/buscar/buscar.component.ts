@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Empleado } from '../../interfaces/empleados.interface';
+import { EmpleadosService } from '../../services/empleados.service';
+
 
 
 @Component({
@@ -11,9 +14,29 @@ import { Empleado } from '../../interfaces/empleados.interface';
 export class BuscarComponent implements OnInit {
   termino: string = '';
   empleados: Empleado[] = [];
-  constructor() { }
+  empleadoSeleccionado: Empleado | undefined;
+
+  constructor( private empleadosService: EmpleadosService ) { }
 
   ngOnInit(): void {
   }
 
+  buscando() {
+    this.empleadosService.getSugerencias(this.termino)
+    .subscribe(empleados => this.empleados = empleados);
+  }
+
+  opcionSeleccionada(event: MatAutocompleteSelectedEvent){
+    
+    if (!event.option.value) {
+      this.empleadoSeleccionado = undefined;
+      return;
+    }
+    
+    const empleado: Empleado = event.option.value;
+    this.termino = empleado.nombre;
+
+    this.empleadosService.getEmpleadoById( empleado.idempleado! )
+    .subscribe(empleado => this.empleadoSeleccionado = empleado);
+  }
 }
