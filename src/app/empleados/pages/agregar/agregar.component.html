@@ -1,20 +1,13 @@
-<h1>Nuevo Heroe <small></small></h1>
+<h1>Nuevo Empleado: <small>{{empleado.nombre}}</small></h1>
 
 <div fxLayout="row" fxLayoutGap="40px" fxLayout.xs="column">
     <div fxFlex="50" fxLayout="column">
 
-        <mat-form-field fxFlex="100" fxLayout.xs="column">
-            <mat-label>ID del Empleado</mat-label>
-            <input 
-            matInput
-            type="text"
-            [(ngModel)]="empleado.idempleado"
-            required>
-        </mat-form-field>
 
         <div fxLayout="row" 
         fxLayout.xs="column"
         fxLayoutGap="20px">
+
             <mat-form-field fxFlex="100" fxLayout.xs="column">
                 <mat-label>Nombre de Empleado</mat-label>
                 <input 
@@ -62,12 +55,22 @@
         </mat-form-field>
 
         <mat-form-field fxFlex="100">
-            <mat-label>Empresa</mat-label>
+            <mat-label>Antiguedad: </mat-label>
             <input 
             matInput
             type="text"
-            [(ngModel)]="empleado.empresa"
+            [(ngModel)]="empleado.antiguedad"
             required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Empresa</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let empresa of empresas"
+                                    [value]="empresa.id">
+                    {{empresa.desc}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
 
         <mat-form-field fxFlex="100">
@@ -95,7 +98,7 @@
                 Borrar
             </button>
         </div>
-        <!-- (click)="borrarEmpleado()" -->
+        
     </div>
     <div fxFlex="50">
         <img [src]="empleado | imagen">

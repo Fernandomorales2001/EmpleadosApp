@@ -8,9 +8,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { EmpleadosRoutingModule } from './empleados-routing.module';
 import { MaterialModule } from '../material/material.module';
-import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { FormsModule } from '@angular/forms';
+import { EmpleadoTarjetaComponent } from "./components/empleado-tarjeta/empleado-tarjeta.component";
+'./components/empleado-tarjeta/empleado-tarjeta.component'
 
 @NgModule({
   declarations: [
@@ -19,8 +20,8 @@ import { FormsModule } from '@angular/forms';
     EmpleadoComponent,
     HomeComponent,
     ListadoComponent,
-    HeroeTarjetaComponent,
-    ImagenPipe
+    ImagenPipe,
+    EmpleadoTarjetaComponent
   ],
   imports: [
     CommonModule,

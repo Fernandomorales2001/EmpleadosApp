@@ -17,7 +17,7 @@ export class EmpleadosService {
     return this.http.get<Empleado[]>(`${this.baseUrl}/empleados`)
   }
 
-  getEmpleadoById(idempleado: string):Observable<Empleado> {
+  getEmpleadoById(idempleado: number):Observable<Empleado> {
     return this.http.get<Empleado>(`${this.baseUrl}/empleados/${idempleado}`)
   }
 

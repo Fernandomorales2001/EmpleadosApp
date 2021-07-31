@@ -1,0 +1,35 @@
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title> {{ empleado.nombre }} </mat-card-title>
+        <mat-card-subtitle> {{ empleado.apellido }} </mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image [src]="empleado | imagen">
+
+    <mat-card-content>
+        <h3>{{ empleado.empresa }}</h3>
+        <p>
+            <strong>Direccion: </strong> {{ empleado.direccion }}
+            <br>
+            <strong> Antiguedad: </strong> {{ empleado.antiguedad }}
+            <br>
+            <strong> Codigo de Empleado: </strong> {{ empleado.codigoempleado }}
+        </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-button 
+                color="warn"
+                [routerLink]="['/empleados', empleado.idempleado]">
+            Leer más...
+        </button>
+
+        <button mat-button 
+                color="info"
+                [routerLink]="['/empleados/editar', empleado.idempleado]">
+            Editar
+        </button>
+    </mat-card-actions>
+
+</mat-card>

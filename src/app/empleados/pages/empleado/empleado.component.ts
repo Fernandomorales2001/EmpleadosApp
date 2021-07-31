@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadosService } from "../../services/empleados.service";
 import { switchMap } from "rxjs/operators";
@@ -16,12 +16,13 @@ import { Empleado } from '../../interfaces/empleados.interface';
   ]
 })
 export class EmpleadoComponent implements OnInit {
-
+  @Input() empleados!:Empleado;
   empleado!: Empleado;
 
   constructor(private activatedRoute: ActivatedRoute,
     private empleadosService: EmpleadosService,
-    private router: Router) { }
+    private router: Router) { 
+    }
 
   ngOnInit(): void {
 
